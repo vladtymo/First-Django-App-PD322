@@ -77,3 +77,7 @@ def list(request):
     html += "</ul>"
 
     return HttpResponse(html)
+
+
+def details(request, id):
+    return HttpResponse(f"User - {id}]!")
