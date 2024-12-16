@@ -67,17 +67,12 @@ users = [
 
 # Create your views here.
 def home(request):
-    return HttpResponse("Hello, World!")
+    return HttpResponse("<h1>Hello, World!</h1>")
 
 
 def list(request):
-    html = "<h1>Users</h1> <ul>"
-    for user in users:
-        html += f"<li>{user['name']}</li>"
-    html += "</ul>"
-
-    return HttpResponse(html)
+    return render(request, "index.html", {"users": users})
 
 
 def details(request, id):
-    return HttpResponse(f"User - {id}]!")
+    return render(request, "details.html", {"user": users[id - 1]})
