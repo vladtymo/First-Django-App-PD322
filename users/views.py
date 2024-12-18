@@ -29,4 +29,4 @@ def delete(request, id):
 
     user.delete()
 
-    return redirect("/users/list")
+    return redirect("/users")
