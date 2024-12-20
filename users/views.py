@@ -1,6 +1,8 @@
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 
+from users.forms.create import CreateUser
+from users.forms.edit import EditUser
 from users.models import User
 
 
@@ -19,6 +21,32 @@ def details(request, id):
     # TODO: check if user exists
 
     return render(request, "details.html", {"user": user})
+
+
+def create(request):
+
+    form = CreateUser()
+
+    if request.method == "POST":
+        form = CreateUser(request.POST)
+
+        if form.is_valid():
+            form.save()
+            return redirect("/users")
+
+    return render(request, "create.html", {"form": form})
+
+
+def edit(request, id):
+
+    user = User.objects.get(id=id)
+
+    if user is None:
+        return HttpResponse("User not found")
+
+    form = EditUser(instance=user)
+
+    return render(request, "edit.html", {"form": form})
 
 
 def delete(request, id):
