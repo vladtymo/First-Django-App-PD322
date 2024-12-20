@@ -3,7 +3,7 @@
 {% block header %}Create New User{% endblock %}
 
 {% block content %}
-<form method="post" action="/users/create/">
+<form method="post">
     {% csrf_token %}
 
     <!-- {% for field in form %}

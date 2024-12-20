@@ -46,6 +46,13 @@ def edit(request, id):
 
     form = EditUser(instance=user)
 
+    if request.method == "POST":
+        form = CreateUser(request.POST, instance=user)
+
+        if form.is_valid():
+            form.save()
+            return redirect("/users")
+
     return render(request, "edit.html", {"form": form})
 
 

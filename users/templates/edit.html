@@ -3,19 +3,21 @@
 {% block header %}Edit User{% endblock %}
 
 {% block content %}
-<form method="post" action="/users/edit/">
+<form method="post">
     {% csrf_token %}
     <div class="mb-3">
         <label class="form-label">Name</label>
-        <input type="text" name="name" class="form-control" placeholder="Enter user name">
+        <input value="{{ form.name.value }}" type="text" name="name" class="form-control" placeholder="Enter user name">
     </div>
     <div class="mb-3">
         <label class="form-label">Email</label>
-        <input type="email" name="email" class="form-control" placeholder="Enter email address">
+        <input value="{{ form.email.value }}" type="email" name="email" class="form-control"
+            placeholder="Enter email address">
     </div>
     <div class="mb-3">
         <label class="form-label">Phone</label>
-        <input type="tel" name="phone" class="form-control" placeholder="Enter phone number">
+        <input value="{{ form.phone.value }}" type="tel" name="phone" class="form-control"
+            placeholder="Enter phone number">
     </div>
     <div>
         <button type="submit" class="btn btn-primary">Edit</button>
