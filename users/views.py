@@ -20,7 +20,7 @@ def details(request, id):
     user = User.objects.get(id=id)
     # TODO: check if user exists
 
-    return render(request, "details.html", {"user": user})
+    return render(request, "details.html", {"user": user, "return_url": "/users"})
 
 
 def create(request):
@@ -34,7 +34,7 @@ def create(request):
             form.save()
             return redirect("/users")
 
-    return render(request, "create.html", {"form": form})
+    return render(request, "create.html", {"form": form, "return_url": "/users"})
 
 
 def edit(request, id):
@@ -53,7 +53,7 @@ def edit(request, id):
             form.save()
             return redirect("/users")
 
-    return render(request, "edit.html", {"form": form})
+    return render(request, "edit.html", {"form": form, "return_url": "/users"})
 
 
 def delete(request, id):
