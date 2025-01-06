@@ -10,6 +10,8 @@ body>.container {
 }
 
 footer {
-    padding: 10px;
+    background-color: rgb(60, 60, 60);
+    padding: 20px;
     color: white;
+    text-align: center;
 }
