@@ -16,6 +16,11 @@ def list(request):
     return render(request, "index.html", {"users": users})
 
 
+def catalog(request):
+    users = User.objects.all()
+    return render(request, "catalog.html", {"users": users})
+
+
 def details(request, id):
     user = User.objects.get(id=id)
     # TODO: check if user exists

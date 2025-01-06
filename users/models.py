@@ -6,6 +6,7 @@ class User(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField(max_length=100)
     phone = models.CharField(max_length=100)
+    photo = models.ImageField(blank=True)
 
     def __str__(self):
         return self.name
