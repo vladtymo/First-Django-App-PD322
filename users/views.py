@@ -33,11 +33,11 @@ def create(request):
     form = CreateUser()
 
     if request.method == "POST":
-        form = CreateUser(request.POST)
+        form = CreateUser(request.POST, request.FILES)
 
         if form.is_valid():
             form.save()
-            return redirect("/users")
+            return redirect("/")
 
     return render(request, "create.html", {"form": form, "return_url": "/"})
 
