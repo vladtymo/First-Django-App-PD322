@@ -5,13 +5,7 @@ from users.forms.create import CreateUser
 from users.forms.edit import EditUser
 from users.models import User
 
-
-# Create your views here.
-def home(request):
-    return HttpResponse("<h1>Hello, World!</h1>")
-
-
-def list(request):
+def index(request):
     users = User.objects.all()
     return render(request, "index.html", {"users": users})
 
@@ -56,7 +50,7 @@ def edit(request, id):
 
         if form.is_valid():
             form.save()
-            return redirect("/users")
+            return redirect("/")
 
     return render(request, "edit.html", {"form": form, "return_url": "/"})
 
@@ -69,4 +63,4 @@ def delete(request, id):
 
     user.delete()
 
-    return redirect("/users")
+    return redirect("/")
