@@ -1,3 +1,4 @@
+from django.forms import model_to_dict
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 
@@ -19,7 +20,12 @@ def details(request, id):
     user = User.objects.get(id=id)
     # TODO: check if user exists
 
-    return render(request, "details.html", {"user": user, "return_url": "/"})
+    return render(request, "details.html", {
+        "user": {
+            **model_to_dict(user),
+            "roleName": User.ROLE_CHOICES[user.role][1]
+        }, 
+        "return_url": "/"})
 
 
 def create(request):
@@ -32,8 +38,10 @@ def create(request):
         if form.is_valid():
             form.save()
             return redirect("/")
+        
+    print(User.ROLE_CHOICES)
 
-    return render(request, "create.html", {"form": form, "return_url": "/"})
+    return render(request, "create.html", {"form": form, "return_url": "/", "roles": User.ROLE_CHOICES})
 
 
 def edit(request, id):
