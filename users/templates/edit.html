@@ -21,8 +21,9 @@
     </div>
     <div class="mb-3">
         <label class="form-label">Phone</label>
-        <input value="{{ form.phone.value }}" type="tel" name="phone" class="form-control"
-            placeholder="Enter phone number">
+        <!-- <input value="{{ form.phone.value }}" type="tel" name="phone" class="form-control"
+            placeholder="Enter phone number"> -->
+        {{form.phone}}
     </div>
     <div class="mb-3">
         <label class="form-label">{{form.role.label}}</label>

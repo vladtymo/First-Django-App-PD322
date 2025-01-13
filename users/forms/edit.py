@@ -8,4 +8,5 @@ class EditUser(forms.ModelForm):
         fields = "__all__"  # all User model fields
         widgets = {
             'role': forms.Select(attrs={'class': 'form-select'}),
+            'phone': forms.TextInput(attrs={'class': 'form-control'}),
         }
