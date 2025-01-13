@@ -54,7 +54,10 @@ def edit(request, id):
     form = EditUser(instance=user)
 
     if request.method == "POST":
-        form = CreateUser(request.POST, instance=user)
+        form = CreateUser(request.POST, request.FILES, instance=user)
+
+        if request.FILES and user.avatar: # do work when avatar != None, 0, False, "", [], (), {}
+            user.avatar.delete()
 
         if form.is_valid():
             form.save()
@@ -69,6 +72,9 @@ def delete(request, id):
     if user is None:
         return HttpResponse("User not found")
 
+    if user.avatar: # do work when avatar != None, 0, False, "", [], (), {}
+        user.avatar.delete()
+        
     user.delete()
 
     return redirect("/")

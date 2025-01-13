@@ -15,6 +15,17 @@ body>.container {
     object-fit: cover;
 }
 
+.edit-form .avatar {
+    text-align: center;
+}
+
+.edit-form img {
+    width: auto;
+    height: 200px;
+    border-radius: 10px;
+    object-fit: contain;
+}
+
 footer {
     background-color: rgb(60, 60, 60);
     padding: 20px;
