@@ -17,7 +17,7 @@ class User(models.Model):
     role = models.IntegerField(choices=ROLE_CHOICES, default=0)
 
     def __str__(self):
-        return self.name
+        return f"{self.name} - {self.email}"
 
 class Role(models.Model):
     name = models.CharField( 
@@ -26,4 +26,10 @@ class Role(models.Model):
         default = 0) 
 
     def __str__(self):
-        return self.name
+        return f"{self.name}"
+
+class Product(models.Model):
+    name = models.CharField(max_length=100)
+    price = models.FloatField()
+    description = models.TextField()
+    image = models.ImageField(blank=True, null=True, upload_to="products/")
