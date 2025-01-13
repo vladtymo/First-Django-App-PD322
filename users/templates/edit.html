@@ -38,3 +38,25 @@
     </div>
 </form>
 {% endblock %}
+
+{% block script %}
+<script>
+    const avatarInput = document.querySelector('input[name="avatar"]');
+    const avatarImg = document.querySelector('.avatar img');
+
+    // avatarImg.addEventListener('click', () => {
+    //     avatarInput.click();
+    // });
+
+    avatarInput.addEventListener('change', () => {
+        const file = avatarInput.files[0];
+        const reader = new FileReader();
+
+        reader.onload = () => {
+            avatarImg.src = reader.result;
+        }
+
+        reader.readAsDataURL(file);
+    });
+</script>
+{% endblock script %}
