@@ -42,8 +42,8 @@ def create(request):
 
             messages.success(request, "User created successfully!")
             return redirect("/")
-        
-    print(User.ROLE_CHOICES)
+        else:
+            messages.error(request, "Invalid data!")
 
     return render(request, "create.html", {"form": form, "return_url": "/", "roles": User.ROLE_CHOICES})
 
