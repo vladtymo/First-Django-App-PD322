@@ -79,9 +79,19 @@ DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
         "NAME": BASE_DIR / "db.sqlite3",
+        # "ENGINE": "sql_server.pyodbc",
+        # "NAME": "django-db",
+        # "USER": "wladnaz_SQLLogin_1",
+        # "PASSWORD": "qsyiy5d3ff",
+        # "HOST": "django-db.mssql.somee.com",
+        # "PORT": "1433",
+        # "OPTIONS": {
+        #     "driver": "ODBC Driver 18 for SQL Server", 
+        # },
     }
 }
 
+DATABASE_CONNECTION_POOLING = False
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -112,7 +122,6 @@ TIME_ZONE = "UTC"
 USE_I18N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/

@@ -1,6 +1,8 @@
 from django.forms import model_to_dict
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
+from django.contrib.auth.views import LoginView
+from django.contrib import messages
 
 from users.forms.create import CreateUser
 from users.forms.edit import EditUser
@@ -37,6 +39,8 @@ def create(request):
 
         if form.is_valid():
             form.save()
+
+            messages.success(request, "User created successfully!")
             return redirect("/")
         
     print(User.ROLE_CHOICES)
@@ -78,3 +82,12 @@ def delete(request, id):
     user.delete()
 
     return redirect("/")
+
+
+class CustomLoginView(LoginView):
+    # template_name = 'login.html'
+    # authentication_form = CustomAuthenticationForm
+
+    def form_valid(self, form):
+        # Add your authentication logic here
+        return super().form_valid(form)
