@@ -49,7 +49,6 @@ def create(request):
 
 
 def edit(request, id):
-
     user = User.objects.get(id=id)
 
     if user is None:

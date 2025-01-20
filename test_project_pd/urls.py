@@ -7,9 +7,10 @@ from users.views import CustomLoginView
 
 urlpatterns = [
     # path(r'^admin/login/', views.),
-    path("admin/", admin.site.urls),
-    path('login/', CustomLoginView.as_view(), name='login'),
     path("", include("users.urls")),
+    path("admin/", admin.site.urls),
+    path("cart/", include("cart.urls")),
+    path('login/', CustomLoginView.as_view(), name='login'),
 ]
 
 if settings.DEBUG:  # Only serve media files in development
