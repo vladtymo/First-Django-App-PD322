@@ -26,6 +26,11 @@ body>.container {
     object-fit: contain;
 }
 
+.details-link {
+    text-decoration: none;
+    color: black;
+}
+
 footer {
     background-color: rgb(60, 60, 60);
     padding: 20px;

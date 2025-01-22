@@ -14,7 +14,9 @@
                 class="card-img-top" alt="{{user.name}}">
             {% endif %}
             <div class="card-body">
-                <h5 class="card-title">{{user.name}}</h5>
+                <a href="/details/{{user.id}}" class="details-link">
+                    <h5 class="card-title">{{user.name}}</h5>
+                </a>
                 <p class="card-text">{{user.phone}} - {{user.email}}</p>
 
             </div>

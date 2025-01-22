@@ -10,6 +10,7 @@ urlpatterns = [
     path("", include("users.urls")),
     path("admin/", admin.site.urls),
     path("cart/", include("cart.urls")),
+    path("orders/", include("orders.urls")),
     path('login/', CustomLoginView.as_view(), name='login'),
 ]
 

@@ -4,6 +4,7 @@ from django.shortcuts import redirect, render
 from django.contrib.auth.views import LoginView
 from django.contrib import messages
 
+from orders.models import Order
 from users.forms.create import CreateUser
 from users.forms.edit import EditUser
 from users.models import User
@@ -25,7 +26,8 @@ def details(request, id):
     return render(request, "details.html", {
         "user": {
             **model_to_dict(user),
-            "roleName": User.ROLE_CHOICES[user.role][1]
+            "roleName": User.ROLE_CHOICES[user.role][1],
+            "orders": user.orders.all()
         }, 
         "return_url": "/"})
 

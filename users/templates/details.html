@@ -10,5 +10,11 @@
     <p>Email: {{user.email}}</p>
     <p>Phone: {{user.phone}}</p>
     <p>Role: {{user.roleName}}</p>
+    <p>Orders: {{user.orders|length}}</p>
+    <ul>
+        {% for order in user.orders %}
+        <li>{{order.id}} - {{order.date}} - Total: {{order.total_price}}$</li>
+        {% endfor %}
+    </ul>
 </div>
 {% endblock %}

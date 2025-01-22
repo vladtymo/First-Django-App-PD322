@@ -8,7 +8,17 @@
     <li class="list-group-item">{{i.name}} - {{i.email}}</li>
     {% endfor %}
 </ul>
+{% if users|length == 0 %}
+<p>Your cart is empty!</p>
+<div>
+    <a href="/catalog" class="btn btn-primary mt-3">Continue Shoping</a>
+</div>
+{% else %}
+<div>
+    <a href="/orders/confirm/" class="btn btn-success mt-3">Confirm</a>
+</div>
 <div>
     <a href="clear/" class="btn btn-secondary mt-3">Clear</a>
 </div>
+{% endif %}
 {% endblock %}
