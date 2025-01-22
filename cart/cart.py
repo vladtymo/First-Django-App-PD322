@@ -16,3 +16,6 @@ def get_cart(session):
 
 def clear_cart(session):
     session[CART_KEY] = {}
+
+def get_count(session):
+    return len(get_cart(session).keys())
