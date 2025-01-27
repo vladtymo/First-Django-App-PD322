@@ -8,6 +8,7 @@ from orders.models import Order
 from users.forms.create import CreateUser
 from users.forms.edit import EditUser
 from users.models import User
+from users.serializations import UserSerializer
 
 def index(request):
     users = User.objects.all()
@@ -92,3 +93,13 @@ class CustomLoginView(LoginView):
     def form_valid(self, form):
         # Add your authentication logic here
         return super().form_valid(form)
+    
+
+from rest_framework import viewsets
+
+class UsersViewSet(viewsets.ModelViewSet):
+    # define queryset
+    queryset = User.objects.all()
+ 
+    # specify serializer to be used
+    serializer_class = UserSerializer
